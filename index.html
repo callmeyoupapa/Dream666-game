@@ -1,0 +1,101 @@
+<!doctype html>
+
+<html lang="my">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Dream666</title>
+
+<style>
+
+body{margin:0;background:#101827;color:white;font-family:Arial,sans-serif;text-align:center}
+
+header{padding:20px;background:#090f1c;color:#ffd45a;font-size:28px;font-weight:bold}
+
+main{max-width:400px;margin:24px auto;padding:16px}
+
+.card{background:#1b2941;border:2px solid #e9b73b;border-radius:18px;padding:20px}
+
+.reels{display:flex;justify-content:center;gap:10px;margin:20px 0}
+
+.reel{background:#fff4d5;color:#111;font-size:42px;padding:12px 8px;border-radius:10px;min-width:65px}
+
+button{background:#f3a51b;color:#151515;border:0;border-radius:12px;padding:14px 22px;font-size:18px;font-weight:bold}
+
+p{color:#c8d3e5}
+
+</style>
+
+</head>
+
+<body>
+
+<header>🎰 DREAM666</header>
+
+<main>
+
+<p>Demo Slot Game — ငွေအစစ်မပါပါ</p>
+
+<div class="card">
+
+<h2>777 Fortune</h2>
+
+<p>Demo Coins: <strong id="coins">1000</strong></p>
+
+<div class="reels">
+
+<div class="reel" id="a">7️⃣</div>
+
+<div class="reel" id="b">🍒</div>
+
+<div class="reel" id="c">💎</div>
+
+</div>
+
+<button id="spin">SPIN လှည့်မယ်</button>
+
+<p id="result">ကစားရန် နှိပ်ပါ</p>
+
+</div>
+
+</main>
+
+<script>
+
+let coins=1000;
+
+const symbols=["7️⃣","🍒","💎","⭐","🔔","🍀"];
+
+document.getElementById("spin").onclick=function(){
+
+ if(coins<10){document.getElementById("result").textContent="Demo Coins မလုံလောက်ပါ";return;}
+
+ coins-=10;
+
+ const r=[0,1,2].map(()=>symbols[Math.floor(Math.random()*symbols.length)]);
+
+ ["a","b","c"].forEach((id,i)=>document.getElementById(id).textContent=r[i]);
+
+ let win=0;
+
+ if(r[0]===r[1]&&r[1]===r[2])win=100;
+
+ else if(r[0]===r[1]||r[1]===r[2]||r[0]===r[2])win=20;
+
+ coins+=win;
+
+ document.getElementById("coins").textContent=coins;
+
+ document.getElementById("result").textContent=win?"🎉 Demo Coins "+win+" ရရှိပါပြီ":"ထပ်စမ်းကြည့်ပါ!";
+
+};
+
+</script>
+
+</body>
+
+</html>
